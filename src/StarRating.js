@@ -23,11 +23,11 @@ export default function StarRating({
           key={i}
           // selectedStars > selected
           selected={selectedStars > i}
-          //   const from the predefiend desconstructed array
-          //   onSelect={() => setSelectedStars(i + 1)}
+          // const from the predefined deconstructed array
+          // onSelect={() => setSelectedStars(i + 1)}
           // the on select is a prop that is accepted by star.js
           // create a lambda function and will return the selected star+1 since the array starts from 0
-          //   and will return the onRate
+          // and will return the onRate
           onSelect={() => onRate(i + 1)}
         />
       ))}

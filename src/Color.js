@@ -1,5 +1,5 @@
-// sending interactions back up a componenet tree
-// if we wanted to remove a color, we need to add a close bitton next to each item
+// sending interactions back up a component tree
+// if we wanted to remove a color, we need to add a close button next to each item
 import React from "react";
 import StarRating from "./StarRating";
 import { FaTrash } from "react-icons/fa";
