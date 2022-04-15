@@ -2,15 +2,35 @@ import { useState } from "react";
 import "./App.css";
 import colorData from "./color-data.json";
 import ColorList from "./ColorList";
+import AddColorForm from "./AddColorForm";
+import {v4} from "uuid";
 
 function App() {
   // since this is the parent element now we can useState here to remove the colors
   // the useState array return a stateful value and a function to update it
   // colors which is from the colorData json
-  // we add the variable setColors function tp modify the state
+  // we add the variable setColors function to modify the state
   const [colors, setColors] = useState(colorData);
 
   return (
+    <>
+  <AddColorForm
+    onNewColor={(title,color) =>{
+      // since the set color takes array
+      // we set the value from spread array color
+      // then we the second value of the array is the set color function
+      const newColors = [
+        ...color,
+        {
+          id: v4(),
+          rating: 0,
+          title,
+          color
+        }
+      ]
+      setColors(newColors);
+    }}
+    />
     <ColorList
       colors={colors}
       // will get the onRemoveColor form the colorList with the id that being fired from Color.js
@@ -32,6 +52,8 @@ function App() {
         setColors(newColors);
       }}
     />
+    </>
+
   );
 }
 
