@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-
+import ColorProvider  from "./ColorProvider";
 import App from "./App";
 
-const rootElement = document.getElementById("root");
 ReactDOM.render(
-  <React.StrictMode>
+  <ColorProvider>
     <App />
-  </React.StrictMode>,
-  rootElement
+  </ColorProvider>,
+
+  document.getElementById("root")
 );

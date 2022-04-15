@@ -3,6 +3,7 @@
 import React from "react";
 import StarRating from "./StarRating";
 import { FaTrash } from "react-icons/fa";
+import { useColors } from "./useColors";
 // the ...color that is being sent from ColorList is being passed here
 // on remove get f and return f which mean get which item is selected and return it
 
@@ -11,16 +12,20 @@ export default function Color({
   id,
   title,
   color,
-  rating,
-  onRemove = (f) => f,
-  onRate = (f) => f,
+  rating
+  // onRemove = (f) => f,
+  // onRate = (f) => f,
 }) {
+  const {rateColor, removeColor} = useColors();
+
   return (
     <section>
       <h1>{title}</h1>
 
       {/* on remove return the id is being removed */}
-      <button onClick={() => onRemove(id)}>
+      {/* <button onClick={() => onRemove(id)}> */}
+      {/* now we use the hook */}
+      <button onClick={() => removeColor(id)}>
         <FaTrash />
       </button>
 
@@ -29,7 +34,9 @@ export default function Color({
       {/* will return the id of the section and the selected rating value */}
       <StarRating
         selectedStars={rating}
-        onRate={(rating) => onRate(id, rating)}
+        // onRate={(rating) => onRate(id, rating)}
+        // now we use the hook
+        onRate={(rating) => rateColor(id, rating)}
       />
     </section>
   );

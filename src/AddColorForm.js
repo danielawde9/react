@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import { useColors } from './useColors';
 import { useInput } from './useInput';
 // useRef store values for the lifetime of a component
 // onNewColor return the items that is being called
@@ -16,8 +17,9 @@ export default function AddColorForm({onNewColor = f => f}) {
 
     // -------------
     // now we can use the custom hook instead of coping and pasting if we have a large form 
-    const [titleProps, resetTitle] = useInput("")
-    const [colorProps, resetColor] = useInput("#000")
+    const [titleProps, resetTitle] = useInput("");
+    const [colorProps, resetColor] = useInput("#000000");
+    const {addColor} = useColors();
 
     // the submit here is the submit on the form
     const submit = e => { 
@@ -29,7 +31,7 @@ export default function AddColorForm({onNewColor = f => f}) {
         // const title = txtTitle.current.value;
         // const color = hexColor.current.value;
         
-        onNewColor (titleProps,colorProps);
+        addColor(titleProps,colorProps);
 
         // This is imperative code
         // title.current.value = ""
@@ -61,7 +63,8 @@ export default function AddColorForm({onNewColor = f => f}) {
                 {...titleProps}
                 type="text"
                 placeholder='color title'
-                required
+                required />
+                
             <button>Add</button>
         </form>
     )

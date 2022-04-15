@@ -1,11 +1,10 @@
-import { useState } from "react";
 import "./App.css";
-import colorData from "./color-data.json";
 import ColorList from "./ColorList";
 import AddColorForm from "./AddColorForm";
-import {v4} from "uuid";
 
-function App() {
+// previously without context provider
+/* function App() {
+
   // since this is the parent element now we can useState here to remove the colors
   // the useState array return a stateful value and a function to update it
   // colors which is from the colorData json
@@ -28,6 +27,7 @@ function App() {
           color
         }
       ]
+      // in order to relive ourselves from passing props to multiple components we will use context
       setColors(newColors);
     }}
     />
@@ -58,3 +58,18 @@ function App() {
 }
 
 export default App;
+ */
+// -----------------------
+
+// after using context provider we no longer need useState
+
+export default function App(){
+  return(
+    <>
+    <AddColorForm/>
+    <ColorList/>
+    </>
+
+  )
+}
+
