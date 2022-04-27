@@ -1,4 +1,4 @@
-npx create-react-app my-app
+`npx create-react-app my-app`
 
 Use branches to go through chapters
 
