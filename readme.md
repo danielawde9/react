@@ -1,3 +1,5 @@
+npx create-react-app my-app
+
 Use branches to go through chapters
 
 `git clone url -b branch_name`
